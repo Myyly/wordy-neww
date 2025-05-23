@@ -1,0 +1,175 @@
+ /* phân trang */
+.pagination {
+    display: flex;
+    /*  */
+    /* margin-top: 20px; */
+    /* margin-left: 650px; */
+
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.pagination .page-link {
+    color: #007bff;
+}
+
+.pagination .page-link:hover {
+    background-color: #0056b3;
+    color: white;
+}
+.action {
+    width: 60px; /* Tăng chiều rộng */
+    height: 35px; /* Tăng chiều cao */
+    text-align: center;
+    color: white; /* Chữ màu trắng */
+    border: none; /* Xoá viền */
+    border-radius: 8px; /* Bo tròn góc */
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.action:hover {
+    background-color: #0056b3; /* Đổi màu khi hover */
+}
+.action-bar {
+    display: flex; /* bỏ comment dòng này */
+    justify-content: space-between; /* căn 2 bên */
+    align-items: center; /* căn giữa theo chiều dọc */
+    gap: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* giúp xuống hàng nếu không đủ chỗ */
+}
+.tool-bar {
+    background-color: chocolate;
+    padding: 10px;
+    gap: 30px;
+    display: flex;
+    border-radius: 10px;
+    margin-bottom:10px
+}
+
+.action-bar button,.main-container button {
+    background-color: rgb(255, 180, 5);
+    border: none;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: rgb(144, 100, 0);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+}
+
+.action-bar button:hover,.main-container button:hover {
+    background-color: rgb(255, 238, 198);
+}
+
+.search-bar {
+    background-color: chocolate;
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 10px;
+}
+.search-bar input {
+    width: 480px;
+    color: rgb(144, 100, 0);
+    border: none;
+    border-radius: 5px;
+}
+
+.title-search {
+    color: rgb(255, 195, 54);
+}
+.cl-red{
+    color: red;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.width-110{
+    width: 110px;
+}
+.width-200{
+    width: 200px !important;
+}
+.width-500{
+    width: 500px;
+}
+.height-100vh{
+    height: 100vh;
+}
+.widthfull{
+width: 100%;
+}
+.header-container {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .user-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user-info .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+  }
+  
+  .user-info .username {
+    font-weight: 500;
+    margin-right: 6px;
+  }
+  
+  .user-info .fa {
+    font-size: 12px;
+    color: #333;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    min-width: 160px;
+    z-index: 999;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f2f2f2;
+  }
+

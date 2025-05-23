@@ -1,0 +1,93 @@
+/* Đặt nền và căn giữa trang */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: rgb(255, 180, 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container đăng nhập */
+.account-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hộp đăng nhập */
+.account-box {
+    background: rgb(255, 238, 198);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Các ô nhập dữ liệu */
+.textbox {
+    margin-bottom: 20px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Nút đăng nhập */
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(255, 180, 5);
+    color: rgb(144, 100, 0);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(255, 238, 198);
+}
+
+/* Liên kết đăng ký */
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: rgb(255, 180, 5);
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* icon hien thi mat khau */
+.password-toggle {
+    position: relative;
+}
+
+.password-toggle i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
