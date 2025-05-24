@@ -81,7 +81,7 @@
         </div>
 
 @endsection
-    @vite(['resources/js/gerneral.js'])
+    {{-- @vite(['resources/js/gerneral.js']) --}}
 
     @section('scripts')
 

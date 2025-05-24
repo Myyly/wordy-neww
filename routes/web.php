@@ -11,29 +11,19 @@ use App\Http\Controllers\HomeController;
 
 // ✅ Authentication & Email Verification
 Auth::routes(['verify' => true]);
-
+Route::get('/', function () {
+    if (Auth::check() && Auth::user()->hasVerifiedEmail()) {
+        return redirect()->route('home');
+    } elseif (Auth::check()) {
+        return view('auth.verify'); // Trang yêu cầu xác minh email
+    } else {
+        return redirect()->route('login');
+    }
+});
 // ✅ Home (chỉ truy cập nếu đã login và xác minh email)
 Route::get('/home', [HomeController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('home');
-
-// ✅ Đăng ký
-// Route::get('/signin', [AccountController::class, 'signin'])->name('sign_in_view');
-// Route::post('/signin', [AccountController::class, 'handleSignin'])->name('sign_in');
-
-// ✅ Quên mật khẩu
-// Route::get('/forgot_password', [AccountController::class, 'forgot_pasword'])->name('forgot_pasword');
-// Route::post('/verify_email', [AccountController::class, 'verify_email'])->name('verify_email');
-// Route::post('/forgot-password', [AccountController::class, 'sendResetLinkEmail'])->name('password-email');
-// Route::get('/reset-password', [AccountController::class, 'showResetForm'])->name('password.reset');
-// Route::post('/reset-password', [AccountController::class, 'handleResetPassword'])->name('password-update');
-
-// ✅ Thay đổi mật khẩu (phải đăng nhập)
-// Route::middleware('auth')->group(function () {
-//     Route::get('/change-password', [AccountController::class, 'change_password'])->name('change_password');
-//     Route::post('/change-password-handle', [AccountController::class, 'handleChange_password'])->name('handle_change_password');
-// });
-
 // ✅ Flashcard
 Route::middleware(['auth', 'verified'])->prefix('flashcard')->group(function () {
     Route::post('/delete/{id}', [FlashcardController::class, 'delete'])->name('delete');
