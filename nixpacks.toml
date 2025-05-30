@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ["php", "composer", "php-curl", "php-mbstring", "php-dom", "php-pdo", "php-pdo_mysql", "php-tokenizer", "php-xml", "php-bcmath"]
+nixPkgs = ["php", "composer"]
 
 [phases.build]
 cmds = ["composer install --no-dev --optimize-autoloader", "php artisan config:cache"]
 
 [start]
-cmd = "php -S 0.0.0.0:$PORT -t public"
+cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
