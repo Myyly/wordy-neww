@@ -54,3 +54,6 @@ Route::middleware(['auth', 'verified'])->prefix('profile')->group(function () {
     Route::get('/', [AccountController::class, 'index'])->name('profile');
     Route::post('/edit-info', [AccountController::class, 'edit_infor'])->name('edit_infor');
 });
+Route::get('/ping', function () {
+    return 'pong';
+});
