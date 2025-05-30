@@ -1,5 +1,16 @@
 [phases.setup]
-nixPkgs = ["php", "composer"]
+nixPkgs = [
+  "php",
+  "composer",
+  "php-curl",
+  "php-mbstring",
+  "php-dom",
+  "php-pdo",
+  "php-pdo_mysql",
+  "php-tokenizer",
+  "php-xml",
+  "php-bcmath"
+]
 
 [phases.build]
 cmds = [
