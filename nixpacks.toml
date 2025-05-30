@@ -1,15 +1,22 @@
 [phases.setup]
 nixPkgs = [
   "php",
-  "composer",
+  "php-bcmath",
   "php-curl",
-  "php-mbstring",
   "php-dom",
+  "php-mbstring",
   "php-pdo",
   "php-pdo_mysql",
   "php-tokenizer",
   "php-xml",
-  "php-bcmath"
+  "wget",       # để tải composer
+  "unzip"       # để giải nén composer
+]
+
+[phases.install]
+cmds = [
+  "wget https://getcomposer.org/installer -O composer-setup.php",
+  "php composer-setup.php --install-dir=/usr/local/bin --filename=composer"
 ]
 
 [phases.build]
