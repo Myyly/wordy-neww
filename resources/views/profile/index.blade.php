@@ -5,16 +5,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Profile</title>
-
-  <!-- Bootstrap & Font Awesome -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
   <link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
   <style>
     .profile-container {
       text-align: center;
@@ -135,13 +135,13 @@
   <div class="container">
   <div class="profile-container">
     <div class="cover-photo">
-      <img src="/images/mau-anh-bia-dep-cute-1.jpg" alt="Cover Photo" class="cover-img">
+      <img src="{{ asset($user->cover_img) }}" alt="Cover Photo" class="cover-img">
       <button class="edit-cover-btn" type="button" data-bs-toggle="modal" data-bs-target="#edit_coverModal">
         <i class="fas fa-camera"></i>
       </button>
     </div>
     <div class="avatar-container">
-      <img src="/images/user-default.png" alt="Avatar" class="avatar-img">
+      <img src="{{ asset($user->avatar_img) }}" alt="Avatar" class="avatar-img">
       <button class="edit-avatar-btn" type="button" data-bs-toggle="modal" data-bs-target="#edit_avatarModal">
         <i class="fas fa-camera"></i>
       </button>
@@ -173,3 +173,4 @@
 @include('profile.edit_avatar')
 @include('profile.edit_cover')
 @include('profile.edit_info')
+<script src="{{ asset('js/profile.js') }}"></script>

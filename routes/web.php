@@ -53,7 +53,11 @@ Route::middleware(['auth', 'verified'])->prefix('practice')->group(function () {
 Route::middleware(['auth', 'verified'])->prefix('profile')->group(function () {
     Route::get('/', [AccountController::class, 'index'])->name('profile');
     Route::post('/edit-info', [AccountController::class, 'edit_infor'])->name('edit_infor');
+    Route::post('/upload-avatar', [AccountController::class, 'uploadAvatar'])->name('upload_avatar');
+    Route::post('/upload-cover', [AccountController::class, 'uploadCover'])->name('upload_cover');
+
 });
-Route::get('/ping', function () {
-    return 'pong';
+Route::get('/phpinfo', function () {
+    phpinfo();
 });
+

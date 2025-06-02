@@ -35,7 +35,6 @@ $user = auth()->user();
             <div class="container mt-4">
                 <h4 class="mb-3">List từ đã tạo:</h4>
                 <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-3">
-                    <!-- Ô "Tạo list từ" -->
                     <div class="col">
                         <div
                             class="card text-center border-dashed shadow-sm h-100 d-flex align-items-center justify-content-center">
@@ -60,7 +59,7 @@ $user = auth()->user();
                                         <p class="small text-secondary">{{ $word->description }}</p>
                                     </div>
                                     <div class="card-footer bg-white d-flex align-items-center">
-                                        <img src="/images/user.jpg" class="avatar" alt="avatar">
+                                        <img src="{{ asset($user->avatar_img) }}" class="avatar" alt="avatar">
                                         <span class="small">{{$user->full_name}}</span>
                                     </div>
                                 </div>
@@ -74,13 +73,9 @@ $user = auth()->user();
                 {{ $list_words->links() }}
             </div>
         </div>
-        {{-- add user --}}
     </div>
 @endsection
     @include('listword.add')
-
-    <script src="{{ asset('js/account.js') }}"></script>
-
     @section('scripts')
-
+    <script src="{{ asset('js/account.js') }}"></script>
     @endsection

@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #FFB405; /* nền vàng cam */
+  background-color: #FFB405; 
 }
 
 .logo-img {
@@ -30,7 +30,15 @@
   font-weight: bold;
   color: #333;
 }
-
+img.rounded-circle {
+  width: 50px;       
+  height: 50px;      
+  object-fit: cover;  
+  border-radius: 50%; 
+  vertical-align: middle; 
+  margin-right: 8px;  
+  cursor: pointer;    
+}
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -63,8 +71,7 @@
     <img src="/images/WORDY (3).png" alt="Logo" class="logo-img">
   </a>
   <div class="user-info" onclick="toggleDropdown()">
-    <img src="/images/avatar-cute-dang-iu-6.jpg" alt="Avatar" class="avatar">
-    <span class="username">{{$user->full_name}}</span>
+    <img src="{{ asset($user->avatar_img) }}" alt="Avatar" class="rounded-circle" width="100">    <span class="username">{{$user->full_name}}</span>
     <div class="dropdown-menu" id="dropdownMenu">
       <a href="{{route('profile')}}">Trang cá nhân</a>
       <a href="{{route('password.confirm')}}">Đổi mật khẩu</a>
@@ -78,7 +85,6 @@
     menu.style.display = menu.style.display === "block" ? "none" : "block";
   }
 
-  // Đóng menu khi click ra ngoài
   document.addEventListener("click", function (e) {
     const userInfo = document.querySelector(".user-info");
     const dropdown = document.getElementById("dropdownMenu");
