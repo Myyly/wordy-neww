@@ -16,11 +16,11 @@ $user = auth()->user();
                     Practice
                 </button>
                 </form>
-                <form method ="get" action="{{route('grammar_index')}}">
+                {{-- <form method ="get" action="{{route('grammar_index')}}">
                 <button type="submit" class="btn-add width-200">
                     Grammar
                 </button>
-                </form>
+                </form> --}}
             </div>
             <form method="GET" action="{{route('search_all')}}">
                 <div class="search-bar">
@@ -33,7 +33,7 @@ $user = auth()->user();
 
         <div class="main-container mt-4 ">
             <div class="container mt-4">
-                <h4 class="mb-3">List từ đã tạo:</h4>
+                <h4 class="mb-3">List word:</h4>
                 <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-3">
                     <div class="col">
                         <div
@@ -42,7 +42,7 @@ $user = auth()->user();
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#add_listModal"
                                     style="background-color: none;">
                                     <i class="fa fa-plus fa-2x"></i>
-                                    <p class="mt-2">Tạo list từ</p>
+                                    <p class="mt-2">Create list</p>
                                 </button>
                             </div>
                         </div>

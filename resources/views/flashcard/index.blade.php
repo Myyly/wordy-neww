@@ -26,6 +26,7 @@
                     data-list_id="{{ $list_word->id}}"
                     data-word_title="{{ $list_word->title }}"
                     data-word_description="{{ $list_word->description }}"
+                    data-edit_list-url="{{ route('edit_list', $list_word->id) }}"
                     >
                     Manage List
             </button> 
