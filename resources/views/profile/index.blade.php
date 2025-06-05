@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Profile')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Flashcard')
 @section('content')
       @if(session('success'))
       <div class="alert alert-success alert-dismissible fade show" role="alert" id="success-message">

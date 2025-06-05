@@ -73,10 +73,19 @@ img.rounded-circle {
   <div class="user-info" onclick="toggleDropdown()">
     <img src="{{ asset($user->avatar_img) }}" alt="Avatar" class="rounded-circle" width="100">    <span class="username">{{$user->full_name}}</span>
     <div class="dropdown-menu" id="dropdownMenu">
-      <a href="{{route('profile')}}">Trang cá nhân</a>
-      <a href="{{route('password.confirm')}}">Đổi mật khẩu</a>
-      <a href="{{route('login')}}">Thoát</a>
-    </div>
+      <a href="{{ route('profile') }}">Trang cá nhân</a>
+      <a href="{{ route('password.confirm') }}">Đổi mật khẩu</a>
+  
+      <!-- Link logout gọi form POST -->
+      <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          Thoát
+      </a>
+  
+      <!-- Form logout ẩn -->
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+      </form>
+  </div>
   </div>
 </div>
 <script>
