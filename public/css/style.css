@@ -1,175 +1,310 @@
- /* phân trang */
-.pagination {
-    display: flex;
-    /*  */
-    /* margin-top: 20px; */
-    /* margin-left: 650px; */
-
-}
-
-.pagination .page-item.active .page-link {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: white;
-}
-
-.pagination .page-link {
-    color: #007bff;
-}
-
-.pagination .page-link:hover {
-    background-color: #0056b3;
-    color: white;
-}
-.action {
-    width: 60px; /* Tăng chiều rộng */
-    height: 35px; /* Tăng chiều cao */
-    text-align: center;
-    color: white; /* Chữ màu trắng */
-    border: none; /* Xoá viền */
-    border-radius: 8px; /* Bo tròn góc */
-    cursor: pointer;
-    transition: background 0.3s;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.action:hover {
-    background-color: #0056b3; /* Đổi màu khi hover */
-}
-.action-bar {
-    display: flex; /* bỏ comment dòng này */
-    justify-content: space-between; /* căn 2 bên */
-    align-items: center; /* căn giữa theo chiều dọc */
-    gap: 50px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    flex-wrap: wrap; /* giúp xuống hàng nếu không đủ chỗ */
-}
-.tool-bar {
-    background-color: chocolate;
-    padding: 10px;
-    gap: 30px;
-    display: flex;
-    border-radius: 10px;
-    margin-bottom:10px
-}
-
-.action-bar button,.main-container button {
-    background-color: rgb(255, 180, 5);
-    border: none;
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    font-size: 14px;
+.primay-color {
     color: rgb(144, 100, 0);
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-
 }
 
-.action-bar button:hover,.main-container button:hover {
-    background-color: rgb(255, 238, 198);
+.bg-none {
+    background: none !important;
+}
+.cl-red {
+    color: red;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+/* width */
+.width-30 {
+    width: 30px;
+}
+
+.width-100 {
+    width: 100px;
+}
+
+.width-110 {
+    width: 110px;
+}
+
+.width-150 {
+    width: 150px;
+}
+
+.width-200 {
+    width: 200px !important;
+}
+
+.width-250 {
+    width: 250px;
+}
+
+.width-300 {
+    width: 300px;
+}
+
+.width-500 {
+    width: 500px;
+}
+
+.height-100vh {
+    height: 100vh;
+}
+
+.widthfull {
+    width: 100%;
+}
+.pre-line{
+    white-space: pre-line;
+}
+.text-align-center {
+    text-align: center;
+}
+.primay-color{
+
+}
+ /* phân trang */
+ .pagination {
+     display: flex;
+     /*  */
+     /* margin-top: 20px; */
+     /* margin-left: 650px; */
+
+ }
+
+ .pagination .page-item.active .page-link {
+     background-color: #007bff;
+     border-color: #007bff;
+     color: white;
+ }
+
+ .pagination .page-link {
+     color: #007bff;
+ }
+
+ .pagination .page-link:hover {
+     background-color: #0056b3;
+     color: white;
+ }
+
+ .action {
+     width: 60px;
+     height: 35px;
+     text-align: center;
+     color: white;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: background 0.3s;
+     font-size: 14px;
+     font-weight: bold;
+ }
+
+ .action:hover {
+     background-color: #0056b3;
+ }
+
+ .action-bar {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 50px;
+     margin-bottom: 20px;
+     margin-top: 20px;
+     flex-wrap: wrap;
+ }
+
+ /* .tool-bar {
+     background-color: chocolate;
+     padding: 10px;
+     gap: 30px;
+     display: flex;
+     border-radius: 10px;
+     margin-bottom: 10px
+ } */
+
+ .action-bar button,
+ .main-container button {
+     background-color: rgb(255, 180, 5);
+     border: none;
+     /* min-width: 100px; */
+     height: 30px;
+     border-radius: 5px;
+     font-size: 14px;
+     color: rgb(144, 100, 0);
+     font-weight: bold;
+     transition: background-color 0.3s ease;
+     cursor: pointer;
+
+ }
+
+ .action-bar button:hover,
+ .main-container button:hover {
+    background-color: rgba(255, 179, 0, 0.54);
+     color: rgb(144, 100, 0);
+ }
+
+ /* .search-bar {
+     background-color: chocolate;
+     padding: 10px;
+     display: flex;
+     gap: 20px;
+     align-items: center;
+     border-radius: 10px;
+ }
+
+ .search-bar input {
+     width: 480px;
+     color: rgb(144, 100, 0);
+     border: none;
+     border-radius: 5px;
+ } */
+ .tool-search-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.tool-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.tool-bar button,
+.search-bar button {
+    min-width: fit-content;
+    padding: 5px 12px;
+    white-space: nowrap;
+}
+.search-bar button:hover {
+    background-color: rgba(255, 179, 0, 0.54) !important;
+
 }
 
 .search-bar {
-    background-color: chocolate;
+    background-color: rgba(251, 218, 141, 0.658);
     padding: 10px;
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     border-radius: 10px;
+    flex-wrap: wrap; /* Cho responsive đẹp */
 }
+
 .search-bar input {
-    width: 480px;
+    flex: 1; /* Cho input mở rộng hết mức có thể */
+    min-width: 450px;
+}
+ .title-search {
     color: rgb(144, 100, 0);
-    border: none;
-    border-radius: 5px;
-}
-
-.title-search {
-    color: rgb(255, 195, 54);
-}
-.cl-red{
-    color: red;
-}
-.mb10{
-    margin-bottom: 10px;
-}
-.width-110{
-    width: 110px;
-}
-.width-200{
-    width: 200px !important;
-}
-.width-500{
-    width: 500px;
-}
-.height-100vh{
-    height: 100vh;
-}
-.widthfull{
-width: 100%;
-}
+ }
 .header-container {
-    width: 100%;
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  .user-info {
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .user-info .avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 8px;
-  }
-  
-  .user-info .username {
-    font-weight: 500;
-    margin-right: 6px;
-  }
-  
-  .user-info .fa {
-    font-size: 12px;
-    color: #333;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 8px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 6px;
-    min-width: 160px;
-    z-index: 999;
-  }
-  
-  .dropdown-menu a {
-    display: block;
-    padding: 10px 14px;
-    color: #333;
-    text-decoration: none;
-  }
-  
-  .dropdown-menu a:hover {
-    background-color: #f2f2f2;
-  }
+     width: 100%;
+     background-color: #fff;
+     border-bottom: 1px solid #ddd;
+     padding: 10px 20px;
+ }
 
+ .header {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+ }
+
+ .user-info {
+     position: relative;
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+ }
+
+ .user-info .avatar {
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     object-fit: cover;
+     margin-right: 8px;
+ }
+
+ .user-info .username {
+     font-weight: 500;
+     margin-right: 6px;
+ }
+
+ .user-info .fa {
+     font-size: 12px;
+     color: #333;
+ }
+
+ .dropdown-menu {
+     position: absolute;
+     top: 100%;
+     right: 0;
+     margin-top: 8px;
+     background-color: #fff;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 6px;
+     min-width: 160px;
+     z-index: 999;
+ }
+
+ .dropdown-menu a {
+     display: block;
+     padding: 10px 14px;
+     color: #333;
+     text-decoration: none;
+ }
+
+ .dropdown-menu a:hover {
+     background-color: #f2f2f2;
+ }
+/* icon  */
+ .icon-button {
+     background-color: rgba(252, 240, 213, 0.486) !important;
+     border: rgb(144, 100, 0) !important;
+     width: 40px !important;
+     height: 30px !important;
+
+ }
+
+ .icon-button:focus {
+     background-color: rgba(253, 225, 158, 0.631) !important;
+     outline: none;
+     box-shadow: none;
+ }
+
+ .icon-button:hover {
+     background-color: rgba(249, 226, 171, 0.799) !important;
+     outline: none;
+     box-shadow: none;
+ }
+/* custom modal */
+ .btn-modal {
+     background-color: rgb(255, 238, 198);
+     color: rgb(144, 100, 0);
+     border: none;
+     border-radius: 5px;
+     font-weight: bold;
+     transition: background-color 0.3s ease;
+     cursor: pointer;
+ }
+
+ .btn-modal:hover {
+     background-color: rgb(248, 220, 156);
+     color: rgb(144, 100, 0);
+ }
+
+ .custom-modal {
+     background: rgb(255, 180, 5);
+     color: rgb(144, 100, 0);
+ }
+
+ .custom-modal-body {
+     background-color: rgb(255, 238, 198);
+     color: rgb(144, 100, 0);
+     font-weight: bold;
+ }
+
+ 

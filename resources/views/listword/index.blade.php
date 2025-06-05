@@ -22,7 +22,7 @@ $user = auth()->user();
                 </button>
                 </form>
             </div>
-            <form method="GET" action="{{route('search_list')}}">
+            <form method="GET" action="{{route('search_all')}}">
                 <div class="search-bar">
                     <h4 class="title-search">Search</h4>
                     <input type="text" class="form-control" id="search" placeholder="Enter word..." name="search" value="{{ request('search') }}">
@@ -66,7 +66,6 @@ $user = auth()->user();
                             </a>
                         </div>
                     @endforeach
-
                 </div>
             </div>
             <div class="mb-3" style="margin-top: -80px !important">
@@ -78,4 +77,5 @@ $user = auth()->user();
     @include('listword.add')
     @section('scripts')
     <script src="{{ asset('js/account.js') }}"></script>
+    <script src="{{ asset('js/general.js') }}"></script>
     @endsection

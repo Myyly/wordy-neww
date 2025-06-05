@@ -1,12 +1,33 @@
-$("#checkAllBtn").click(function () {
-    $(".definition-col").toggle(); 
-    $(".definition-header").toggle();
+$(document).ready(function () {
+    let isAllHidden = false; 
+
+    // Toggle toàn bộ định nghĩa khi nhấn checkAllBtn
+    $("#checkAllBtn").click(function () {
+        if (isAllHidden) {
+            $(".definition-content").show();
+            $(".toggle-definition-btn i").removeClass("fa-eye-slash").addClass("fa-eye"); 
+        } else {
+            $(".definition-content").hide();
+            $(".toggle-definition-btn i").removeClass("fa-eye").addClass("fa-eye-slash"); 
+        }
+        isAllHidden = !isAllHidden;
+    });
+
+    // Toggle định nghĩa của riêng từng hàng
+    $(".toggle-definition-btn").click(function () {
+        const $row = $(this).closest("tr");
+        const $definition = $row.find(".definition-content");
+        const $icon = $(this).find("i");
+
+        $definition.toggle();
+        $icon.toggleClass("fa-eye fa-eye-slash");
+    });
 });
 $(document).ready(function () {
     $('#deleteModal').on('show.bs.modal', function (event) {
         let button = $(event.relatedTarget);
         let id = button.data('id');
-        let deleteUrl = "{{ route('delete', ':id') }}".replace(':id', id);
+        let deleteUrl = button.data('delete-url');
         $('#deleteForm').attr('action', deleteUrl);
     });
 });
@@ -26,7 +47,7 @@ $(document).ready(function () {
          $('#title').val(title);
          $('#description').val(description);
          $('#list_id').val(id);
-       let edit_listUrl = "{{ route('edit_list', ':id') }}".replace(':id', id);
+        let edit_listUrl = button.data('edit_list-url');
         $('#edit_listForm').attr('action', edit_listUrl);
     });
 });
@@ -38,13 +59,15 @@ $(document).ready(function () {
         let definition = button.data('definition');
         let word_type = button.data('word_type');
         let pronunciaton = button.data('pronunciaton');
-
-        let editUrl = "{{ route('edit', ':id') }}".replace(':id', id);
+        let example = button.data('example');
+        let editUrl = button.data('edit-url');
         $('#editForm').attr('action', editUrl);
         $('#word').val(word);
         $('#definition').val(definition);
         $('#word_type').val(word_type);
         $('#pronunciaton').val(pronunciaton);
+        $('#example').val(example);
+
     });
 });
 function speak(text) {
