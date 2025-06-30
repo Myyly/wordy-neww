@@ -6,7 +6,6 @@
           {{ session('success') }}
       </div>
   @endif
-
 <div class="container">
 @if(session('error'))
     <div class="alert alert-danger">{{ session('error') }}</div>
@@ -14,12 +13,24 @@
     <div class="action-bar">
         <div class="tool-search-wrapper">
         <div class="tool-bar">
+            <form method="get" action="{{route('list-word')}}">      
+                <button type="submit">
+                    Back to List
+                </button> 
+            </form> 
             <button type="button" class="btn btn-secondary" 
             data-bs-toggle="modal" 
             data-bs-target="#addModal"
             data-list_id="{{ $list_word->id}}"
             >
             Add Word
+            </button> 
+            <button type="button" class="btn btn-secondary" 
+            data-bs-toggle="modal" 
+            data-bs-target="#add_wordsModal"
+             data-list_id="{{ $list_word->id}}"
+            >
+            Add Multiple Words
             </button> 
             <button type="button" class="btn btn-secondary width-110"
                     data-bs-toggle="modal" 
@@ -31,11 +42,6 @@
                     >
                     Manage List
             </button> 
-        <form method="get" action="{{route('list-word')}}">      
-            <button type="submit">
-                Back to List
-            </button> 
-        </form> 
             <button type="button" class="btn btn-dark" id="checkAllBtn">Toggle All Definitions</button>
         </div>
         <form action="{{route('search')}}" method="get">
@@ -127,10 +133,18 @@
 @include('flashcard.edit')
 @include('flashcard.delete')
 @include('flashcard.edit_list')
+@include('flashcard.add_words')
 
 @section('scripts')
 {{-- <script src="{{ asset('js/account.js') }}"></script> --}}
 <script src="{{ asset('js/flashcard.js') }}"></script>
 <script src="{{ asset('js/general.js') }}"></script>
-
+    @if(session('modal_error'))
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const modal = new bootstrap.Modal(document.getElementById('add_wordsModal'));
+        modal.show();
+    });
+</script>
+@endif
 @endsection

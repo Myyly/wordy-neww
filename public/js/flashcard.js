@@ -39,6 +39,13 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
+    $('#add_wordsModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget);
+        let id = button.data('list_id');
+        $('#id_list_words').val(id);
+    });
+});
+$(document).ready(function () {
     $('#edit_listModal').on('show.bs.modal', function (event) {
         let button = $(event.relatedTarget);
         let id = button.data('list_id');

@@ -96,4 +96,46 @@ class FlashcardController extends Controller
         ]);
         return redirect()->route('index', ['list_id' => $flashcard->list_id])->with('success', value: 'Thêm flashcard thành công!');
     }
+    public function adds(Request $request){
+        $words = $request->input('word');
+        $definitions = $request->input('definition');
+        $pronunciations = $request->input('pronunciation');
+        $word_types = $request->input('word_type');
+        $list_id = $request->input('id_list_words');
+        $examples1 = $request->input('example1');
+        $examples2 = $request->input('example2');
+    
+        $count = count($words);
+        $created = 0;
+        $errors = [];
+    
+        for ($i = 0; $i < $count; $i++) {
+            // Kiểm tra nếu hàng có ít nhất 1 dữ liệu được nhập
+            $hasInput = !empty($words[$i]) || !empty($definitions[$i]) || !empty($pronunciations[$i]) || !empty($word_types[$i]) || !empty($examples1[$i]) || !empty($examples2[$i]);
+            if ($hasInput) {
+                if (empty($words[$i]) || empty($definitions[$i])) {
+                    $errors[] = "Dòng " . ($i + 1) . " thiếu 'Word' hoặc 'Definition'";
+                } else {
+                    Flashcard::create([
+                        'word' => $words[$i],
+                        'definition' => $definitions[$i],
+                        'word_type' => $word_types[$i],
+                        'pronunciation' => $pronunciations[$i] ?? null,
+                        'example' => trim(($examples1[$i] ?? '') . "\n" . ($examples2[$i] ?? '')),
+                        'list_id' => $list_id,
+                    ]);
+                    $created++;
+                }
+            }
+        }
+    
+        if (!empty($errors)) {
+            return back()->with('modal_error', implode('<br>', $errors))->withInput();    
+        }
+    
+        if ($created > 0) {
+            return redirect()->route('index', ['list_id' => $list_id])->with('success', 'Thêm flashcard thành công!');
+        } else {
+            return back()->with('modal_error', 'Vui lòng nhập ít nhất một từ hợp lệ!')->withInput();        }
+    }
 }

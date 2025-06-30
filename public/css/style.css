@@ -12,6 +12,8 @@
 .mb10 {
     margin-bottom: 10px;
 }
+.font-weight-bold{font-weight: bold;}
+
 
 /* width */
 .width-30 {
@@ -275,5 +277,8 @@
      color: rgb(144, 100, 0);
      font-weight: bold;
  }
-
- 
+ /* required * */
+ .required{
+   color: red;
+   font-weight: bold;
+ }

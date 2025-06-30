@@ -8,6 +8,13 @@ use App\Http\Controllers\FlashcardController;
 use App\Http\Controllers\ListWordController;
 use App\Http\Controllers\GrammarController;
 use App\Http\Controllers\HomeController;
+use Cloudinary\Api\Upload\UploadApi;
+use Cloudinary\Configuration\Configuration;
+ use Cloudinary\Cloudinary;
+
+
+
+
 
 // ✅ Authentication & Email Verification
 Auth::routes(['verify' => true]);
@@ -28,6 +35,7 @@ Route::get('/home', [HomeController::class, 'index'])
 Route::middleware(['auth', 'verified'])->prefix('flashcard')->group(function () {
     Route::post('/delete/{id}', [FlashcardController::class, 'delete'])->name('delete');
     Route::post('/add', [FlashcardController::class, 'create'])->name('create');
+    Route::post('/adds', [FlashcardController::class, 'adds'])->name('adds');
     Route::get('/detail/{id}', [FlashcardController::class, 'detail'])->name('detail');
     Route::post('/edit/{id}', [FlashcardController::class, 'edit'])->name('edit');
     Route::get('/list/{list_id}', [FlashcardController::class, 'showByList'])->name('index');
@@ -60,4 +68,25 @@ Route::middleware(['auth', 'verified'])->prefix('profile')->group(function () {
 Route::get('/phpinfo', function () {
     phpinfo();
 });
+Route::get('/test-env', function () {
+    return view('listword.test');
+});
 
+Route::get('/test-upload', function () {
+    $cloudinary = new Cloudinary([
+        'cloud' => [
+            'cloud_name' => 'dnrsmozkt',
+            'api_key'    => '816326151464958',
+            'api_secret' => 'Fmq7-MRf94K1qJT8kKsMZhBElTI',
+        ],
+    ]);
+
+    $filePath = public_path('test.jpg');
+
+    try {
+        $response = $cloudinary->uploadApi()->upload($filePath);
+        return '✅ Upload thành công: ' . $response['secure_url'];
+    } catch (\Exception $e) {
+        return '❌ Upload thất bại: ' . $e->getMessage();
+    }
+});
