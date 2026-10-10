@@ -4,12 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ListWord extends Model
 {
     use HasFactory;
-    public $timestamps = false; 
+
+    public $timestamps = false;
+
     protected $table = 'word_lists';
+
     protected $primaryKey = 'id';
 
     protected $fillable =
@@ -17,19 +22,27 @@ class ListWord extends Model
             'title',
             'language',
             'description',
-            'user_id'
+            'user_id',
 
         ];
-        public function flashcards()
-        {
-            return $this->hasMany(Flashcard::class, 'list_id');
-        }
-        public function countFlashcards($id)
-{
-    $wordList = ListWord::find($id);
-    if (!$wordList) {
-        return response()->json(['message' => 'Word List not found'], 404);
+
+    public function flashcards(): HasMany
+    {
+        return $this->hasMany(Flashcard::class, 'list_id');
     }
-    return $wordList->flashcards()->count();
-}
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function countFlashcards($id)
+    {
+        $wordList = ListWord::find($id);
+        if (! $wordList) {
+            return response()->json(['message' => 'Word List not found'], 404);
+        }
+
+        return $wordList->flashcards()->count();
+    }
 }
